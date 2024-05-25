@@ -1,5 +1,6 @@
 @charset "UTF-8";
-@import url(font-awesome.min.css);
+@import url('technology-icons.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
@@ -9,6 +10,7 @@
 :root{
     --background-color: rgb(246, 245, 239);
     --background-secondary-color: rgb(54, 25, 117);
+    --yellow-color: yellow;
 }
 
 body{
@@ -44,8 +46,17 @@ body{
             width: 25ch;  /* Adjust as needed */
             animation: typing 2s steps(24, end), blink-caret .75s step-end infinite;
         }
-          
-          
+
+        @media screen and (width < 480px) {
+            h2.typing {
+                font-size: 20px;
+            }
+
+            .description{
+                background-image: url('../../images/huguntu.png');
+            }
+            
+        }
     }
 
     nav {
@@ -77,9 +88,15 @@ body{
 
 #my-data{
     background-color: #111;
-    pre{
-        code{
+    pre {
+        padding: 10px;
+        color: yellow;
+        .key {
             color: red;
+        }
+        
+        .value {
+            color: yellow;
         }
     }
 }
@@ -106,14 +123,84 @@ ul.icons.social-media {
 }
 
 section{
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 
     &.secondary{
         background-color: var(--background-secondary-color);
         color: white;
     }
     
+}
+
+#experience{
+    .item{
+        border-bottom: 3px solid var(--background-color);
+        padding-top: 2rem;
+
+        .header{
+            margin-bottom: 2rem;
+
+            h2{
+                font-size: 16px;
+                small{
+                    color: var(--background-secondary-color);
+                } 
+            }
+        }
+
+        p{
+            margin-bottom: 2rem;
+            font-size: 14px;
+        }
+
+        ul.technology {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            li {
+                margin: 0.5rem;
+
+                em {
+                    display: inline-block; /* Allow width and height to be set */
+                    font-size: 24px;
+                    background-size: contain; /* Make the background image fit within the element */
+
+                    &:hover{
+                        transform: scale(2); /* Scale up the icon */
+                        color: var(--blue);
+                    }
+                }
+            }
+        }
+    }
+}
+
+#customers{
+    .row{
+        .item{
+            text-align: center;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            img{
+                max-width: 200px;
+                width: 100%;
+                max-height: 200px;
+            }
+
+            &:hover{
+                color: white;
+                box-shadow: black 0px 0px 10px;
+            }
+        }
+    }
 }
 
 footer{
